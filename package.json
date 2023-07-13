@@ -1,0 +1,26 @@
+{
+  "name": "pastoralist-test",
+  "version": "1.0.0",
+  "description": "A repo to ensure Pastoralist works as expected.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jeff Wainwright (yowainwright@gmail.com) <https://jeffry.in>",
+  "license": "MIT",
+  "devDependencies": {
+    "@aashutoshrathi/word-wrap": "^1.2.6",
+    "pastoralist": "^1.1.11",
+    "semver": "^7.5.4",
+    "tough-cookie": "^4.1.3"
+  },
+  "resolutions": {
+    "semver": "^7.5.3",
+    "word-wrap": "npm:@aashutoshrathi/word-wrap",
+    "tough-cookie": "^4.1.3"
+  },
+  "pastoralist": {
+    "appendix": {}
+  }
+}
