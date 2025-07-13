@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  npm-test:
+    build:
+      context: ./npm-test
+      dockerfile: Dockerfile
+    volumes:
+      - ./npm-test:/app
+      - node_modules_npm:/app/node_modules
+    environment:
+      - NODE_ENV=test
+    working_dir: /app
+    command: npm test
+
+  yarn-test:
+    build:
+      context: ./yarn-test
+      dockerfile: Dockerfile
+    volumes:
+      - ./yarn-test:/app
+      - node_modules_yarn:/app/node_modules
+    environment:
+      - NODE_ENV=test
+    working_dir: /app
+    command: yarn test
+
+  pnpm-test:
+    build:
+      context: ./pnpm-test
+      dockerfile: Dockerfile
+    volumes:
+      - ./pnpm-test:/app
+      - node_modules_pnpm:/app/node_modules
+    environment:
+      - NODE_ENV=test
+    working_dir: /app
+    command: pnpm test
+
+  patches-test:
+    build:
+      context: ./patches-test
+      dockerfile: Dockerfile
+    volumes:
+      - ./patches-test:/app
+      - node_modules_patches:/app/node_modules
+    environment:
+      - NODE_ENV=test
+    working_dir: /app
+    command: npm test
+
+  peer-deps-test:
+    build:
+      context: ./peer-deps-test
+      dockerfile: Dockerfile
+    volumes:
+      - ./peer-deps-test:/app
+      - node_modules_peer:/app/node_modules
+    environment:
+      - NODE_ENV=test
+    working_dir: /app
+    command: npm test
+
+  monorepo-test:
+    build:
+      context: ./monorepo-test
+      dockerfile: Dockerfile
+    volumes:
+      - ./monorepo-test:/app
+      - node_modules_monorepo:/app/node_modules
+    environment:
+      - NODE_ENV=test
+    working_dir: /app
+    command: npm test
+
+volumes:
+  node_modules_npm:
+  node_modules_yarn:
+  node_modules_pnpm:
+  node_modules_patches:
+  node_modules_peer:
+  node_modules_monorepo:

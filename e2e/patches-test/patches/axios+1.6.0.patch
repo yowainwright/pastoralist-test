@@ -1,0 +1,12 @@
+diff --git a/node_modules/axios/package.json b/node_modules/axios/package.json
+index 1234567..abcdefg 100644
+--- a/node_modules/axios/package.json
++++ b/node_modules/axios/package.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "axios",
+-  "version": "1.6.0",
++  "version": "1.6.0-patched",
+   "description": "Promise based HTTP client for the browser and node.js",
+   "main": "index.js",
+   "scripts": {

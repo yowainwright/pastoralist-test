@@ -1,0 +1,23 @@
+{
+  "name": "pastoralist-monorepo-test",
+  "version": "1.0.0",
+  "description": "Monorepo test scenario for pastoralist",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "node --test test.js",
+    "postinstall": "pastoralist"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {},
+  "overrides": {
+    "semver": "7.5.3",
+    "tough-cookie": "4.1.3"
+  }
+}

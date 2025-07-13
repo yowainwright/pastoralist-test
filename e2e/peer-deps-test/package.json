@@ -1,0 +1,24 @@
+{
+  "name": "pastoralist-peer-deps-test",
+  "version": "1.0.0",
+  "description": "Peer dependencies test scenario for pastoralist",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test.js",
+    "postinstall": "pastoralist"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "overrides": {
+    "semver": "7.5.3",
+    "tough-cookie": "4.1.3"
+  }
+}

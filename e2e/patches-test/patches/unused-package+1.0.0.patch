@@ -1,0 +1,12 @@
+diff --git a/node_modules/unused-package/package.json b/node_modules/unused-package/package.json
+index 1234567..abcdefg 100644
+--- a/node_modules/unused-package/package.json
++++ b/node_modules/unused-package/package.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "unused-package",
+-  "version": "1.0.0",
++  "version": "1.0.0-patched",
+   "description": "This package is not in dependencies",
+   "main": "index.js"
+ }
