@@ -4,7 +4,14 @@
   "description": "A repo to ensure Pastoralist works as expected.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:e2e": "cd e2e && ./run-tests.sh",
+    "test:e2e:npm": "cd e2e && docker-compose run --rm npm-test",
+    "test:e2e:yarn": "cd e2e && docker-compose run --rm yarn-test",
+    "test:e2e:pnpm": "cd e2e && docker-compose run --rm pnpm-test",
+    "test:e2e:patches": "cd e2e && docker-compose run --rm patches-test",
+    "test:e2e:peer-deps": "cd e2e && docker-compose run --rm peer-deps-test",
+    "test:e2e:monorepo": "cd e2e && docker-compose run --rm monorepo-test"
   },
   "keywords": [],
   "author": "Jeff Wainwright (yowainwright@gmail.com) <https://jeffry.in>",
