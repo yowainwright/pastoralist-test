@@ -14,12 +14,24 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
+# Detect docker compose command (legacy vs new)
+if command -v docker-compose &> /dev/null; then
+    DOCKER_COMPOSE="docker-compose"
+elif docker compose version &> /dev/null; then
+    DOCKER_COMPOSE="docker compose"
+else
+    echo -e "${RED}❌ Neither 'docker-compose' nor 'docker compose' found${NC}"
+    exit 1
+fi
+
+echo "Using: $DOCKER_COMPOSE"
+
 # Function to run a test scenario
 run_test() {
     local test_name=$1
     echo -e "${YELLOW}Running $test_name tests...${NC}"
     
-    if docker-compose run --rm $test_name; then
+    if $DOCKER_COMPOSE run --rm $test_name; then
         echo -e "${GREEN}✅ $test_name tests passed${NC}"
         return 0
     else
@@ -30,7 +42,7 @@ run_test() {
 
 # Build all images
 echo "🔨 Building Docker images..."
-docker-compose build
+$DOCKER_COMPOSE build
 
 # Run all test scenarios
 failed_tests=()
