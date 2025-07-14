@@ -5,9 +5,10 @@ WORKDIR /app
 # Install npm and patch-package
 RUN npm install -g npm@latest patch-package
 
-# Copy and install local pastoralist package
-COPY pastoralist-1.4.0-1.tgz ./
-RUN npm install -g pastoralist-1.4.0-1.tgz
+# Copy and build pastoralist from source
+COPY ../../pastoralist ./pastoralist-src
+RUN cd pastoralist-src && npm ci && npm pack
+RUN npm install -g ./pastoralist-src/pastoralist-*.tgz
 
 # Copy package files
 COPY package*.json ./

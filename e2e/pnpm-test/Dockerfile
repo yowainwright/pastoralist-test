@@ -5,9 +5,10 @@ WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy and install local pastoralist package
-COPY pastoralist-1.4.0-1.tgz ./
-RUN npm install -g pastoralist-1.4.0-1.tgz
+# Copy and build pastoralist from source
+COPY ../../pastoralist ./pastoralist-src
+RUN cd pastoralist-src && npm ci && npm pack
+RUN npm install -g ./pastoralist-src/pastoralist-*.tgz
 
 # Copy all files first
 COPY . .
