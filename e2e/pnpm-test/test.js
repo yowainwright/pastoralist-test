@@ -22,7 +22,7 @@ test('PNPM test scenario', async (t) => {
     const packageJsonPath = path.join(__dirname, 'package.json');
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     const appendix = packageJson.pastoralist.appendix;
-    const expectedOverrides = ['semver@7.5.3', 'tough-cookie@4.1.3'];
+    const expectedOverrides = ['follow-redirects@1.14.0', 'cookie@0.5.0', 'bytes@3.1.0'];
 
     for (const override of expectedOverrides) {
       assert.ok(appendix[override], `Override ${override} should be found in appendix`);
@@ -34,13 +34,13 @@ test('PNPM test scenario', async (t) => {
     const packageJsonPath = path.join(__dirname, 'package.json');
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
-    const hasLodashDependency = Object.keys(packageJson.dependencies || {}).includes('lodash');
     const hasAxiosDependency = Object.keys(packageJson.dependencies || {}).includes('axios');
     const hasExpressDependency = Object.keys(packageJson.dependencies || {}).includes('express');
+    const hasBodyParserDependency = Object.keys(packageJson.dependencies || {}).includes('body-parser');
 
-    assert.ok(hasLodashDependency, 'Lodash dependency should be found');
     assert.ok(hasAxiosDependency, 'Axios dependency should be found');
     assert.ok(hasExpressDependency, 'Express dependency should be found');
+    assert.ok(hasBodyParserDependency, 'Body-parser dependency should be found');
   });
 
   await t.test('pnpm overrides are properly applied', async () => {
@@ -49,8 +49,9 @@ test('PNPM test scenario', async (t) => {
 
     assert.ok(packageJson.pnpm, 'PNPM section should exist');
     assert.ok(packageJson.pnpm.overrides, 'PNPM overrides section should exist');
-    assert.strictEqual(packageJson.pnpm.overrides.semver, '7.5.3', 'Semver override should be correct');
-    assert.strictEqual(packageJson.pnpm.overrides['tough-cookie'], '4.1.3', 'Tough-cookie override should be correct');
+    assert.strictEqual(packageJson.pnpm.overrides['follow-redirects'], '1.14.0', 'Follow-redirects override should be correct');
+    assert.strictEqual(packageJson.pnpm.overrides.cookie, '0.5.0', 'Cookie override should be correct');
+    assert.strictEqual(packageJson.pnpm.overrides.bytes, '3.1.0', 'Bytes override should be correct');
   });
 
   await t.test('manual pastoralist execution with pnpm', async () => {

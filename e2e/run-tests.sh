@@ -65,6 +65,11 @@ if ! run_test "monorepo-test"; then
     failed_tests+=("monorepo-test")
 fi
 
+# Run Bun tests
+if ! run_test "bun-test"; then
+    failed_tests+=("bun-test")
+fi
+
 # Summary
 echo ""
 echo "🐑 Test Results Summary"

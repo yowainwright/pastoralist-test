@@ -19,5 +19,14 @@
   "overrides": {
     "semver": "7.5.3",
     "tough-cookie": "4.1.3"
+  },
+  "pastoralist": {
+    "appendix": {
+      "semver@7.5.3": {
+        "dependents": {
+          "object-inspect": "semver@^6.3.1"
+        }
+      }
+    }
   }
 }

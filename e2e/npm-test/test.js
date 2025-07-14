@@ -22,7 +22,7 @@ test('NPM test scenario', async (t) => {
     const packageJsonPath = path.join(__dirname, 'package.json');
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     const appendix = packageJson.pastoralist.appendix;
-    const expectedOverrides = ['semver@7.5.3', 'tough-cookie@4.1.3'];
+    const expectedOverrides = ['follow-redirects@1.14.0'];
 
     for (const override of expectedOverrides) {
       assert.ok(appendix[override], `Override ${override} should be found in appendix`);
@@ -48,11 +48,12 @@ test('NPM test scenario', async (t) => {
     const packageJsonPath = path.join(__dirname, 'package.json');
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
-    const hasLodashDependency = Object.keys(packageJson.dependencies || {}).includes('lodash');
-    const hasDevDependencies = Object.keys(packageJson.devDependencies || {}).length > 0;
+const hasAxiosDependency = Object.keys(packageJson.dependencies || {}).includes('axios');
+    const devDepsCount = Object.keys(packageJson.devDependencies || {}).length;
 
-    assert.ok(hasLodashDependency, 'Lodash dependency should be found');
-    assert.ok(hasDevDependencies, 'Dev dependencies should be found');
+    assert.ok(hasAxiosDependency, 'Axios dependency should be found');
+    // No dev dependencies expected in this test
+    assert.strictEqual(devDepsCount, 0, 'No dev dependencies expected');
   });
 
   await t.test('overrides are properly applied', async () => {
@@ -60,8 +61,7 @@ test('NPM test scenario', async (t) => {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
     assert.ok(packageJson.overrides, 'Overrides section should exist');
-    assert.strictEqual(packageJson.overrides.semver, '7.5.3', 'Semver override should be correct');
-    assert.strictEqual(packageJson.overrides['tough-cookie'], '4.1.3', 'Tough-cookie override should be correct');
+    assert.strictEqual(packageJson.overrides['follow-redirects'], '1.14.0', 'Follow-redirects override should be correct');
   });
 
   console.log('🎉 All NPM tests passed!');

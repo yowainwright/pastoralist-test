@@ -1,19 +1,19 @@
-FROM node:24-alpine
+FROM oven/bun:1.1-alpine
 
 WORKDIR /app
 
-# Copy and install local pastoralist package
+# Install pastoralist globally
 COPY pastoralist-1.4.0-1.tgz ./
-RUN npm install -g pastoralist-1.4.0-1.tgz
+RUN bun install -g pastoralist-1.4.0-1.tgz
 
 # Copy all files first
 COPY . .
 
 # Install dependencies
-RUN yarn install
+RUN bun install
 
 # Explicitly run postinstall to ensure pastoralist runs
-RUN yarn postinstall
+RUN bun run postinstall
 
 # Run tests
-CMD ["yarn", "test"]
+CMD ["bun", "test"]

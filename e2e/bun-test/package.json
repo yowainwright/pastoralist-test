@@ -1,0 +1,20 @@
+{
+  "name": "pastoralist-bun-test",
+  "version": "1.0.0",
+  "description": "Bun test scenario for pastoralist",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "bun test test.js",
+    "postinstall": "pastoralist"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "fastify": "^4.24.0"
+  },
+  "devDependencies": {},
+  "overrides": {
+    "follow-redirects": "1.14.0",
+    "fast-deep-equal": "3.1.1"
+  }
+}

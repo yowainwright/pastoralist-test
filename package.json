@@ -1,33 +1,46 @@
 {
   "name": "pastoralist-test",
   "version": "1.0.0",
-  "description": "A repo to ensure Pastoralist works as expected.",
-  "main": "index.js",
+  "description": "End-to-end test suite for Pastoralist - ensuring dependency override tracking works across package managers",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:e2e",
     "test:e2e": "cd e2e && ./run-tests.sh",
     "test:e2e:npm": "cd e2e && docker-compose run --rm npm-test",
     "test:e2e:yarn": "cd e2e && docker-compose run --rm yarn-test",
     "test:e2e:pnpm": "cd e2e && docker-compose run --rm pnpm-test",
+    "test:e2e:bun": "cd e2e && docker-compose run --rm bun-test",
     "test:e2e:patches": "cd e2e && docker-compose run --rm patches-test",
     "test:e2e:peer-deps": "cd e2e && docker-compose run --rm peer-deps-test",
     "test:e2e:monorepo": "cd e2e && docker-compose run --rm monorepo-test"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yowainwright/pastoralist-test.git"
+  },
+  "keywords": [
+    "pastoralist",
+    "testing",
+    "e2e",
+    "package-manager",
+    "dependency-tracking",
+    "npm",
+    "yarn",
+    "pnpm",
+    "bun",
+    "overrides",
+    "resolutions"
+  ],
   "author": "Jeff Wainwright (yowainwright@gmail.com) <https://jeffry.in>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yowainwright/pastoralist-test/issues"
+  },
+  "homepage": "https://github.com/yowainwright/pastoralist-test#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
-    "@aashutoshrathi/word-wrap": "^1.2.6",
-    "pastoralist": "^1.1.11",
-    "semver": "^7.5.4",
-    "tough-cookie": "^4.1.3"
-  },
-  "resolutions": {
-    "semver": "^7.5.3",
-    "word-wrap": "npm:@aashutoshrathi/word-wrap",
-    "tough-cookie": "^4.1.3"
-  },
-  "pastoralist": {
-    "appendix": {}
+    "pastoralist": "latest"
   }
 }
