@@ -2,13 +2,8 @@ FROM node:24-alpine
 
 WORKDIR /app
 
-# Install npm
-RUN npm install -g npm@latest
-
-# Copy and build pastoralist from source
-COPY ../../pastoralist ./pastoralist-src
-RUN cd pastoralist-src && npm ci && npm pack
-RUN npm install -g ./pastoralist-src/pastoralist-*.tgz
+# Install npm and pastoralist
+RUN npm install -g npm@latest pastoralist
 
 # Copy all files first
 COPY . .

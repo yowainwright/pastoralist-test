@@ -20,5 +20,19 @@
   "overrides": {
     "semver": "7.5.3",
     "tough-cookie": "4.1.3"
+  },
+  "pastoralist": {
+    "appendix": {
+      "semver@7.5.3": {
+        "dependents": {
+          "lodash": "semver@^7.6.0"
+        }
+      },
+      "tough-cookie@4.1.3": {
+        "dependents": {
+          "axios": "tough-cookie@^4.1.4"
+        }
+      }
+    }
   }
 }

@@ -2,10 +2,8 @@ FROM oven/bun:1.1-alpine
 
 WORKDIR /app
 
-# Copy and build pastoralist from source
-COPY ../../pastoralist ./pastoralist-src
-RUN cd pastoralist-src && npm ci && npm pack
-RUN npm install -g ./pastoralist-src/pastoralist-*.tgz
+# Install pastoralist from npm using bun
+RUN bun install -g pastoralist
 
 # Copy all files first
 COPY . .

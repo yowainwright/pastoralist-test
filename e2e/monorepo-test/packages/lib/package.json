@@ -8,7 +8,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    
+    "tough-cookie": "^4.1.0"
   },
   "peerDependencies": {
     "react": "^18.0.0"
