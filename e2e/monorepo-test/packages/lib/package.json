@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "object-inspect": "^1.12.0",
+    "semver": "^7.6.0"
   },
   "devDependencies": {
     "tough-cookie": "^4.1.0"

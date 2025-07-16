@@ -24,6 +24,7 @@
     "appendix": {
       "semver@7.5.3": {
         "dependents": {
+          "iconv-lite": "semver@*",
           "object-inspect": "semver@^6.3.1",
           "@monorepo-test/lib": "semver@^7.6.0"
         }
