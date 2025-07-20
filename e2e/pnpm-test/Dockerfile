@@ -2,12 +2,8 @@ FROM node:24-alpine
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
-
-# Copy and install local pastoralist package
-COPY pastoralist-1.4.0-1.tgz ./
-RUN npm install -g pastoralist-1.4.0-1.tgz
+# Install pnpm and pastoralist
+RUN npm install -g pnpm pastoralist
 
 # Copy all files first
 COPY . .

@@ -11,8 +11,7 @@
     "test:e2e:pnpm": "cd e2e && docker-compose run --rm pnpm-test",
     "test:e2e:bun": "cd e2e && docker-compose run --rm bun-test",
     "test:e2e:patches": "cd e2e && docker-compose run --rm patches-test",
-    "test:e2e:peer-deps": "cd e2e && docker-compose run --rm peer-deps-test",
-    "test:e2e:monorepo": "cd e2e && docker-compose run --rm monorepo-test"
+    "test:e2e:peer-deps": "cd e2e && docker-compose run --rm peer-deps-test"
   },
   "repository": {
     "type": "git",
@@ -38,7 +37,7 @@
   },
   "homepage": "https://github.com/yowainwright/pastoralist-test#readme",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=24.0.0"
   },
   "devDependencies": {
     "pastoralist": "latest"

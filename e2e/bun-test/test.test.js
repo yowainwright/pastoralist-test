@@ -1,24 +1,23 @@
-import { run } from 'bun:test';
-import assert from 'node:assert';
+import { test, expect } from 'bun:test';
 import fs from 'fs';
 import { execSync } from 'child_process';
 
-run('Bun test scenario', async () => {
+test('Bun test scenario', async () => {
   console.log('🐑 Running Bun test scenario...');
 
   // Check pastoralist execution
   const packageJsonPath = 'package.json';
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
-  assert.ok(packageJson.pastoralist, 'Pastoralist section should exist in package.json');
-  assert.ok(packageJson.pastoralist.appendix, 'Pastoralist appendix should exist');
+  expect(packageJson.pastoralist).toBeDefined();
+  expect(packageJson.pastoralist.appendix).toBeDefined();
 
   const appendix = packageJson.pastoralist.appendix;
   const expectedOverrides = ['follow-redirects@1.14.0', 'fast-deep-equal@3.1.1'];
 
   for (const override of expectedOverrides) {
-    assert.ok(appendix[override], `Override ${override} should be found in appendix`);
-    assert.ok(appendix[override].dependents, `Dependents should be tracked for ${override}`);
+    expect(appendix[override]).toBeDefined();
+    expect(appendix[override].dependents).toBeDefined();
   }
 
   // Manual execution
@@ -28,9 +27,9 @@ run('Bun test scenario', async () => {
       stdio: 'pipe'
     });
     console.log('Pastoralist output:', output);
-    assert.ok(true, 'Pastoralist should execute without errors');
+    expect(true).toBe(true); // Pastoralist should execute without errors
   } catch (error) {
-    assert.fail(`Error running pastoralist: ${error.message}`);
+    throw new Error(`Error running pastoralist: ${error.message}`);
   }
 
   console.log('🎉 All Bun tests passed!');

@@ -2,9 +2,8 @@ FROM oven/bun:1.1-alpine
 
 WORKDIR /app
 
-# Install pastoralist globally
-COPY pastoralist-1.4.0-1.tgz ./
-RUN bun install -g pastoralist-1.4.0-1.tgz
+# Install pastoralist from npm using bun
+RUN bun install -g pastoralist
 
 # Copy all files first
 COPY . .

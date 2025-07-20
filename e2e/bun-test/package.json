@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "bun test test.js",
+    "test": "bun test test.test.js",
     "postinstall": "pastoralist"
   },
   "dependencies": {
@@ -16,5 +16,19 @@
   "overrides": {
     "follow-redirects": "1.14.0",
     "fast-deep-equal": "3.1.1"
+  },
+  "pastoralist": {
+    "appendix": {
+      "follow-redirects@1.14.0": {
+        "dependents": {
+          "axios": "follow-redirects@^1.15.6"
+        }
+      },
+      "fast-deep-equal@3.1.1": {
+        "dependents": {
+          "fastify": "fast-deep-equal@^3.1.3"
+        }
+      }
+    }
   }
 }
