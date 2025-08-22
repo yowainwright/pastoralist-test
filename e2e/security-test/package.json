@@ -1,0 +1,19 @@
+{
+  "name": "pastoralist-security-test",
+  "version": "1.0.0",
+  "description": "Security test scenario for pastoralist",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test.js",
+    "postinstall": "pastoralist && cat package.json"
+  },
+  "dependencies": {
+    "lodash": "4.17.20",
+    "minimist": "1.2.5",
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -49,3 +49,10 @@ services:
       dockerfile: Dockerfile
     environment:
       - NODE_ENV=test
+
+  security-test:
+    build:
+      context: ./security-test
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=test

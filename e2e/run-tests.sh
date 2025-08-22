@@ -82,7 +82,9 @@ if ! run_test "bun-test"; then
     failed_tests+=("bun-test")
 fi
 
-# Summary
+if ! run_test "security-test"; then
+    failed_tests+=("security-test")
+fi
 echo ""
 echo "🐑 Test Results Summary"
 echo "======================"
