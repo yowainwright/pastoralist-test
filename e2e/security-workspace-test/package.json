@@ -1,0 +1,17 @@
+{
+  "name": "security-workspace-test",
+  "version": "1.0.0",
+  "description": "Security test for workspace scenario",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "node --test test.js",
+    "postinstall": "pastoralist && cat package.json"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

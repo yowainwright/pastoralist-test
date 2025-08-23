@@ -1,0 +1,20 @@
+{
+  "name": "security-provider-test",
+  "version": "1.0.0",
+  "description": "E2E test for security provider abstraction",
+  "dependencies": {
+    "lodash": "4.17.20",
+    "minimist": "1.2.5",
+    "axios": "0.21.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "pastoralist": {
+    "security": {
+      "enabled": true,
+      "provider": "osv",
+      "severityThreshold": "medium"
+    }
+  }
+}
